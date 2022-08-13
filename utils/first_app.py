@@ -126,7 +126,6 @@ class Sign:
         i2 = int_overflow(i2 + i9)
         i3 = int_overflow(i3 + i10)
         i4 = int_overflow(i4 + i15)
-        print(i, i2, i3, i4)
 
 
 if __name__ == '__main__':
