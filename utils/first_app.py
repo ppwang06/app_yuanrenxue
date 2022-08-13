@@ -1,7 +1,7 @@
 """
 猿人学app 逆向第一题
 未做之前 大概已知道是个java层的md4加密
-输入:page=21660284103  输出 8566491c142d570269da3ac27600cdd  921ffc90d74df5429f89b8ae9a3a4d20
+输入:page=21660284103  输出 8566491c142d570269da3ac27600cdd
 """
 from loguru import logger
 import ctypes
@@ -72,6 +72,12 @@ class Sign:
             new_list.append(a)
         return new_list
 
+    @staticmethod
+    def change_to_hex(c):
+        if c > 0:
+            return hex(c).replace("0x", "")
+        return hex(c & 0xFFFFFFFF).replace("0x", "")
+
     def sign(self, target_str: str):
         target_list = [ord(s) for s in target_str]
         res_list = self.padding(target_list)
@@ -126,12 +132,14 @@ class Sign:
         i2 = int_overflow(i2 + i9)
         i3 = int_overflow(i3 + i10)
         i4 = int_overflow(i4 + i15)
+        return self.change_to_hex(i) + self.change_to_hex(i2) + self.change_to_hex(i3) + self.change_to_hex(i4)
 
 
 if __name__ == '__main__':
-    cstr = "page=21660298694"
+    cstr = "page=21660284103"
     s = Sign()
-    s.sign(cstr)
+    res_sign = s.sign(cstr)
+    logger.info(f"sign:{res_sign}")
 
 
 
