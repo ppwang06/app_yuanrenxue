@@ -1,6 +1,8 @@
 """
 第一题的计算结果
 4902423
+使用方式:
+将以下代码的token 换成自己抓包的token 即可使用。共有两处需要替换的token
 """
 import requests
 from utils.first_app import Sign
