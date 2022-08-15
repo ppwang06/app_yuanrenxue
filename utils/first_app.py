@@ -4,7 +4,7 @@
 输入:page=21660284103  输出 8566491c142d570269da3ac27600cdd
 
 遇到的坑:
-1. java代码直接执行 padding填充数组不一样
+1. java代码直接执行 padding填充数组不一样  只需要把length的数据类型调整为 long 即可
 2 python 代码存在数据溢出问题 ，有的数字过大
 """
 from loguru import logger
