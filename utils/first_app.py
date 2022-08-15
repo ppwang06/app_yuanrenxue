@@ -2,10 +2,13 @@
 猿人学app 逆向第一题
 未做之前 大概已知道是个java层的md4加密
 输入:page=21660284103  输出 8566491c142d570269da3ac27600cdd
+
+遇到的坑:
+1. java代码直接执行 padding填充数组不一样
+2 python 代码存在数据溢出问题 ，有的数字过大
 """
 from loguru import logger
 import ctypes
-import time
 
 
 def int_overflow(val):
@@ -56,7 +59,6 @@ class Sign:
 
     @staticmethod
     def rotate_left(i, i2):
-        # logger.info(f"i:{i}, i2:{i2}")
         return unsigned_right_shift(i, (32-i2)) | int_overflow(i << i2)
 
     def padding(self, str_list):
