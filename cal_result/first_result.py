@@ -23,7 +23,7 @@ class FirstHandle:
     @staticmethod
     def get_time():
         params = {
-            "token": "BWGxW5KMGHzb9jv9zqRyoXzXiiQuZifLNrsDRbi6tT0b8KLMyusq3Lm5+UAU6AG1"
+            "token": "抓包采用自己的token"
         }
         response = requests.get('https://appmatch.yuanrenxue.com/time', headers=headers, params=params)
         ctime = response.json().get("time")
@@ -38,7 +38,7 @@ class FirstHandle:
             'page': page,
             'sign': sign,
             't': ctime,
-            'token': 'BWGxW5KMGHzb9jv9zqRyoXzXiiQuZifLNrsDRbi6tT0b8KLMyusq3Lm5+UAU6AG1'
+            'token': '抓包采用自己的token'
         }
 
         response = requests.post('https://appmatch.yuanrenxue.com/app1', headers=headers, data=data)
