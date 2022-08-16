@@ -2,8 +2,11 @@
 第一题的计算结果
 4902423
 使用方式:
+token 无校验 不使用token依可
 将以下代码的token 换成自己抓包的token 即可使用。共有两处需要替换的token
+不需要请求时间 直接用当前时间即可
 """
+import time
 import requests
 from utils.first_app import Sign
 from loguru import logger
@@ -22,17 +25,8 @@ class FirstHandle:
     def __init__(self):
         self.sign = Sign()
 
-    @staticmethod
-    def get_time():
-        params = {
-            "token": "抓包采用自己的token"
-        }
-        response = requests.get('https://appmatch.yuanrenxue.com/time', headers=headers, params=params)
-        ctime = response.json().get("time")
-        return ctime
-
     def get_page(self, page):
-        ctime = self.get_time()
+        ctime = int(time.time())
         headers['content-type'] = 'application/x-www-form-urlencoded'
         target_str = f"page={page}{ctime}"
         sign = self.sign.sign(target_str)
@@ -42,7 +36,6 @@ class FirstHandle:
             't': ctime,
             'token': '抓包采用自己的token'
         }
-
         response = requests.post('https://appmatch.yuanrenxue.com/app1', headers=headers, data=data)
         return response.json()
 
