@@ -4,6 +4,7 @@
 
 1. [第一题纯算法](./cal_result/first_result.py)
 2. [第二题 frida rpc调用](./cal_result/second_rpc.py)
+3. [第三题 frida rpc调用](./cal_result/three_rpc.py)
 ---
 ###### [官网地址](https://appmatch.yuanrenxue.com/)    
 

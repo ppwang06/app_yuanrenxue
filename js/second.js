@@ -1,4 +1,4 @@
-console.log("开始 hook 猿人学第一题..")
+console.log("开始 hook 猿人学第二题..")
 
 
 //frida -U --no-pause -f com.yuanrenxue.match2022 -l second.js
