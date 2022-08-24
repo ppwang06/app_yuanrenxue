@@ -41,9 +41,6 @@ def get_url():
         'content-type': 'application/x-www-form-urlencoded; charset=utf-8',
         'cache-control': 'no-cache',
     }
-    params = {
-        'token': ''
-    }
     total = 0
     for page in range(1, 101):
         ctime = int(time.time())
@@ -54,7 +51,7 @@ def get_url():
             'ts': ctime,
             'sign': sign
         }
-        response = requests.post('https://appmatch.yuanrenxue.com/app2', headers=headers, params=params, data=data)
+        response = requests.post('https://appmatch.yuanrenxue.com/app2', headers=headers, data=data)
         data_list = response.json().get("data")
         for one in data_list:
             val = one.get("value").strip()

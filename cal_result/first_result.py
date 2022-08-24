@@ -2,8 +2,7 @@
 第一题的计算结果
 4902423
 使用方式:
-token 无校验 不使用token依可
-将以下代码的token 换成自己抓包的token 即可使用。共有两处需要替换的token
+直接运行
 不需要请求时间 直接用当前时间即可
 """
 import time
@@ -34,7 +33,6 @@ class FirstHandle:
             'page': page,
             'sign': sign,
             't': ctime,
-            'token': '抓包采用自己的token'
         }
         response = requests.post('https://appmatch.yuanrenxue.com/app1', headers=headers, data=data)
         return response.json()
